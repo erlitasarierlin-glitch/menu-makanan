@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class MenuMakanan {
+
+    public static void main(String[] args) {
+
+        String[] menu = {"Soto", "Rawon", "Pecel", "Bakso", "Siomay"};
+        int[] harga = {15000, 20000, 10000, 12500, 25000};
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Jumlah jenis makanan yang dipesan: ");
+        int n = input.nextInt();
+
+        int total = 0;
+
+        System.out.println("\nTotal Harga :");
+
+        for (int i = 0; i < n; i++) {
+
+            System.out.print("Nama makanan : ");
+            String nama = input.next();
+
+            System.out.print("Jumlah porsi : ");
+            int porsi = input.nextInt();
+
+            for (int j = 0; j < menu.length; j++) {
+                if (nama.equalsIgnoreCase(menu[j])) {
+                    int subtotal = harga[j] * porsi;
+                    total += subtotal;
+
+                    System.out.println("✓ " + menu[j] +
+                            " @" + harga[j] +
+                            " * " + porsi +
+                            " = " + subtotal);
+                }
+            }
+        }
+
+        System.out.println("Total = " + total);
+    }
+}
